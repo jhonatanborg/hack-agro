@@ -44,11 +44,7 @@
 <script>
 export default {
   data: () => ({
-    links: [
-      { title: "Movimentação", route: "moviments" },
-      { title: "Empresas", route: "company" },
-      { title: "Insumos", route: "insumos" },
-    ],
+    links: [{ title: "Inicio", route: "company" }],
   }),
 };
 </script>

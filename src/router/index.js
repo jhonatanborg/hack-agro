@@ -16,6 +16,32 @@ const routes = [
     name: "company",
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/company/index.vue"),
+    children: [
+      {
+        path: "/lista-de-empresas",
+        name: "company",
+        component: () =>
+          import(/* webpackChunkName: "about" */ "../views/company/ListCompany.vue"),
+      },
+      {
+        path: "/cadastrar-empresa",
+        name: "form-company",
+        component: () =>
+          import(/* webpackChunkName: "about" */ "../views/company/FormCompany.vue"),
+      },
+      {
+        path: "/detalhes-empresa/:id",
+        name: "details-company",
+        component: () =>
+          import(/* webpackChunkName: "about" */ "../views/company/Details.vue"),
+      },
+      {
+        path: "/detalhes-empresa/supplies/:id",
+        name: "supplies-details",
+        component: () =>
+          import(/* webpackChunkName: "about" */ "../views/company/Supplies.vue"),
+      }
+    ]
   },
   {
     path: "/movimentacao",
@@ -26,8 +52,30 @@ const routes = [
   {
     path: "/insumos",
     name: "insumos",
+    redirect: { name: 'list-suplies' },
+
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/insumos/index.vue"),
+    children: [
+      {
+        path: "/lista-de-insumos",
+        name: "list-suplies",
+        component: () =>
+          import(/* webpackChunkName: "about" */ "../views/insumos/ListSupplies.vue"),
+      },
+      {
+        path: "/cadastrar-empresa",
+        name: "form-suplies",
+        component: () =>
+          import(/* webpackChunkName: "about" */ "../views/insumos/FormSupplies.vue"),
+      },
+      {
+        path: "/detalhes-empresa/supplies/:id",
+        name: "details-supplies",
+        component: () =>
+          import(/* webpackChunkName: "about" */ "../views/insumos/Details.vue"),
+      }
+    ]
   },
 ];
 
